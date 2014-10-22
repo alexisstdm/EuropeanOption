@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TableLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <!--<com.google.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-2613488639187412/6980628685"
+            ads:loadAdOnCreate="true"/> -->
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            ads:adUnitId="ca-app-pub-2613488639187412/8001723088"
+            ads:adSize="SMART_BANNER"/>
+           <!-- ads:loadAdOnCreate="true"/> -->
+
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Spot Level "/>
+            <EditText
+                android:id="@+id/spot_level"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="1.00"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Strike"/>
+            <EditText
+                android:id="@+id/strike"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="0.80"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Rate"/>
+            <EditText
+                android:id="@+id/rate"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="0.00462"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Dividend"/>
+            <EditText
+                android:id="@+id/dividend"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="0.00145"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Maturity"/>
+            <EditText
+                android:id="@+id/maturity"
+                android:editable="false"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="1.0"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Volatility"/>
+            <EditText
+                android:id="@+id/volatility"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="0.05"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="European type"/>
+            <Spinner
+                android:id="@+id/type"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Eval Date"/>
+            <TextView
+                android:id="@+id/evaluation_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="01/01/2014"/>
+            <Button android:text="Set"
+                android:id="@+id/evaluation_date_set"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="Maturity Date"/>
+            <TextView
+                android:id="@+id/maturity_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12pt"
+                android:text="01/01/2014"/>
+            <Button android:text="Set"
+                android:id="@+id/maturity_date_set"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"/>
+        </TableRow>
+
+        <Button android:text="Calculate Price"
+            android:id="@+id/priceButton"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+        </Button>
+        <Button android:text="Calculate Greeks"
+            android:id="@+id/greeksButton"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+        </Button>
+    </TableLayout>
+</ScrollView>
