@@ -21,15 +21,21 @@ public class EuropeanCall extends EuropeanOption {
     private class calculateDelta extends  Function{
         public double evaluate(HashMap<String, Double> parameters){
 
-            GaussDistribution gaussDistribution = new GaussDistribution(0.0, 1.0);
+            final GaussDistribution gaussDistribution = new GaussDistribution(0.0, 1.0);
 
             double d_plus = 0.0;
-            double v = EuropeanCall.this.getModel().getVolatility();
-            double s = EuropeanCall.this.getModel().getSpotLevel();
-            double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
-            double k = EuropeanCall.this.getStrike();
-            double d = EuropeanCall.this.getModel().getDividend();
-            double r = EuropeanCall.this.getModel().getRate();
+            //double v = EuropeanCall.this.getModel().getVolatility();
+            //double s = EuropeanCall.this.getModel().getSpotLevel();
+            //double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
+            //double k = EuropeanCall.this.getStrike();
+            //double d = EuropeanCall.this.getModel().getDividend();
+            //double r = EuropeanCall.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
 
             return Math.exp(-d*tau)*gaussDistribution.N(d_plus);
@@ -42,12 +48,18 @@ public class EuropeanCall extends EuropeanOption {
             GaussDistribution gaussDistribution = new GaussDistribution(0.0, 1.0);
 
             double d_plus = 0.0;
-            double v = EuropeanCall.this.getModel().getVolatility();
-            double s = EuropeanCall.this.getModel().getSpotLevel();
-            double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
-            double k = EuropeanCall.this.getStrike();
-            double d = EuropeanCall.this.getModel().getDividend();
-            double r = EuropeanCall.this.getModel().getRate();
+            //double v = EuropeanCall.this.getModel().getVolatility();
+            //double s = EuropeanCall.this.getModel().getSpotLevel();
+            //double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
+            //double k = EuropeanCall.this.getStrike();
+            //double d = EuropeanCall.this.getModel().getDividend();
+            //double r = EuropeanCall.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
 
             return 1.0/(v*Math.sqrt(tau))*Math.exp(-d*tau)/s*gaussDistribution.density(d_plus);
@@ -61,12 +73,18 @@ public class EuropeanCall extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanCall.this.getModel().getVolatility();
-            double s = EuropeanCall.this.getModel().getSpotLevel();
-            double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
-            double k = EuropeanCall.this.getStrike();
-            double d = EuropeanCall.this.getModel().getDividend();
-            double r = EuropeanCall.this.getModel().getRate();
+            //double v = EuropeanCall.this.getModel().getVolatility();
+            //double s = EuropeanCall.this.getModel().getSpotLevel();
+            //double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
+            //double k = EuropeanCall.this.getStrike();
+            //double d = EuropeanCall.this.getModel().getDividend();
+            //double r = EuropeanCall.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
@@ -81,12 +99,18 @@ public class EuropeanCall extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanCall.this.getModel().getVolatility();
-            double s = EuropeanCall.this.getModel().getSpotLevel();
-            double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
-            double k = EuropeanCall.this.getStrike();
-            double d = EuropeanCall.this.getModel().getDividend();
-            double r = EuropeanCall.this.getModel().getRate();
+            //double v = EuropeanCall.this.getModel().getVolatility();
+            //double s = EuropeanCall.this.getModel().getSpotLevel();
+            //double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
+            //double k = EuropeanCall.this.getStrike();
+            //double d = EuropeanCall.this.getModel().getDividend();
+            //double r = EuropeanCall.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
@@ -103,12 +127,18 @@ public class EuropeanCall extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanCall.this.getModel().getVolatility();
-            double s = EuropeanCall.this.getModel().getSpotLevel();
-            double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
-            double k = EuropeanCall.this.getStrike();
-            double d = EuropeanCall.this.getModel().getDividend();
-            double r = EuropeanCall.this.getModel().getRate();
+            //double v = EuropeanCall.this.getModel().getVolatility();
+            //double s = EuropeanCall.this.getModel().getSpotLevel();
+            //double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
+            //double k = EuropeanCall.this.getStrike();
+            //double d = EuropeanCall.this.getModel().getDividend();
+            //double r = EuropeanCall.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
@@ -123,12 +153,18 @@ public class EuropeanCall extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanCall.this.getModel().getVolatility();
-            double s = EuropeanCall.this.getModel().getSpotLevel();
-            double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
-            double k = EuropeanCall.this.getStrike();
-            double d = EuropeanCall.this.getModel().getDividend();
-            double r = EuropeanCall.this.getModel().getRate();
+            //double v = EuropeanCall.this.getModel().getVolatility();
+            //double s = EuropeanCall.this.getModel().getSpotLevel();
+            //double tau = EuropeanCall.this.getMaturityDate()-EuropeanCall.this.getStartDate();
+            //double k = EuropeanCall.this.getStrike();
+            //double d = EuropeanCall.this.getModel().getDividend();
+            //double r = EuropeanCall.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
@@ -166,7 +202,7 @@ public class EuropeanCall extends EuropeanOption {
         HashMap<String, Double> parameters = new HashMap<String, Double>();
 
         parameters.put("SPOT_LEVEL", this.getModel().getSpotLevel());
-        parameters.put("SPOT_LEVEL", this.getModel().getVolatility());
+        parameters.put("VOLATILITY", this.getModel().getVolatility());
         parameters.put("RATE", this.getModel().getRate());
         parameters.put("DIVIDEND", this.getModel().getDividend());
         parameters.put("STRIKE", this.getStrike());

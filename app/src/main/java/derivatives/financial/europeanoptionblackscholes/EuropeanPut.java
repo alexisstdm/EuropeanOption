@@ -20,12 +20,18 @@ public class EuropeanPut extends EuropeanOption {
             GaussDistribution gaussDistribution = new GaussDistribution(0.0, 1.0);
 
             double d_plus = 0.0;
-            double v = EuropeanPut.this.getModel().getVolatility();
-            double s = EuropeanPut.this.getModel().getSpotLevel();
-            double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
-            double k = EuropeanPut.this.getStrike();
-            double d = EuropeanPut.this.getModel().getDividend();
-            double r = EuropeanPut.this.getModel().getRate();
+            //double v = EuropeanPut.this.getModel().getVolatility();
+            //double s = EuropeanPut.this.getModel().getSpotLevel();
+            //double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
+            //double k = EuropeanPut.this.getStrike();
+            //double d = EuropeanPut.this.getModel().getDividend();
+            //double r = EuropeanPut.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
 
             return Math.exp(-d*tau)*(gaussDistribution.N(d_plus)-1);
@@ -38,12 +44,18 @@ public class EuropeanPut extends EuropeanOption {
             GaussDistribution gaussDistribution = new GaussDistribution(0.0, 1.0);
 
             double d_plus = 0.0;
-            double v = EuropeanPut.this.getModel().getVolatility();
-            double s = EuropeanPut.this.getModel().getSpotLevel();
-            double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
-            double k = EuropeanPut.this.getStrike();
-            double d = EuropeanPut.this.getModel().getDividend();
-            double r = EuropeanPut.this.getModel().getRate();
+            //double v = EuropeanPut.this.getModel().getVolatility();
+            //double s = EuropeanPut.this.getModel().getSpotLevel();
+            //double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
+            //double k = EuropeanPut.this.getStrike();
+            //double d = EuropeanPut.this.getModel().getDividend();
+            //double r = EuropeanPut.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
 
             return 1.0/(v*Math.sqrt(tau))*Math.exp(-d*tau)/s*gaussDistribution.density(d_plus);
@@ -57,12 +69,18 @@ public class EuropeanPut extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanPut.this.getModel().getVolatility();
-            double s = EuropeanPut.this.getModel().getSpotLevel();
-            double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
-            double k = EuropeanPut.this.getStrike();
-            double d = EuropeanPut.this.getModel().getDividend();
-            double r = EuropeanPut.this.getModel().getRate();
+            //double v = EuropeanPut.this.getModel().getVolatility();
+            //double s = EuropeanPut.this.getModel().getSpotLevel();
+            //double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
+            //double k = EuropeanPut.this.getStrike();
+            //double d = EuropeanPut.this.getModel().getDividend();
+            //double r = EuropeanPut.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
@@ -77,16 +95,22 @@ public class EuropeanPut extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanPut.this.getModel().getVolatility();
-            double s = EuropeanPut.this.getModel().getSpotLevel();
-            double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
-            double k = EuropeanPut.this.getStrike();
-            double d = EuropeanPut.this.getModel().getDividend();
-            double r = EuropeanPut.this.getModel().getRate();
+            //double v = EuropeanPut.this.getModel().getVolatility();
+            //double s = EuropeanPut.this.getModel().getSpotLevel();
+            //double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
+            //double k = EuropeanPut.this.getStrike();
+            //double d = EuropeanPut.this.getModel().getDividend();
+            //double r = EuropeanPut.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
-            return (-d*gaussDistribution.N(-d_plus)-v/(2.0*Math.sqrt(tau))*gaussDistribution.density(-d_minus)) *
+            return (-d*gaussDistribution.N(-d_plus)-v/(2.0*Math.sqrt(tau))*gaussDistribution.density(-d_plus)) *
                     s*Math.exp(-d*tau)+k*r*Math.exp(-r*tau)*
                     gaussDistribution.N(-d_minus);
         }
@@ -99,12 +123,18 @@ public class EuropeanPut extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanPut.this.getModel().getVolatility();
-            double s = EuropeanPut.this.getModel().getSpotLevel();
-            double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
-            double k = EuropeanPut.this.getStrike();
-            double d = EuropeanPut.this.getModel().getDividend();
-            double r = EuropeanPut.this.getModel().getRate();
+            //double v = EuropeanPut.this.getModel().getVolatility();
+            //double s = EuropeanPut.this.getModel().getSpotLevel();
+            //double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
+            //double k = EuropeanPut.this.getStrike();
+            //double d = EuropeanPut.this.getModel().getDividend();
+            //double r = EuropeanPut.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
@@ -119,12 +149,18 @@ public class EuropeanPut extends EuropeanOption {
 
             double d_plus = 0.0;
             double d_minus= 0.0;
-            double v = EuropeanPut.this.getModel().getVolatility();
-            double s = EuropeanPut.this.getModel().getSpotLevel();
-            double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
-            double k = EuropeanPut.this.getStrike();
-            double d = EuropeanPut.this.getModel().getDividend();
-            double r = EuropeanPut.this.getModel().getRate();
+            //double v = EuropeanPut.this.getModel().getVolatility();
+            //double s = EuropeanPut.this.getModel().getSpotLevel();
+            //double tau = EuropeanPut.this.getMaturityDate()-EuropeanPut.this.getStartDate();
+            //double k = EuropeanPut.this.getStrike();
+            //double d = EuropeanPut.this.getModel().getDividend();
+            //double r = EuropeanPut.this.getModel().getRate();
+            double v = parameters.get("VOLATILITY");
+            double s = parameters.get("SPOT_LEVEL");
+            double tau = parameters.get("MATURITY");
+            double k = parameters.get("STRIKE");
+            double d = parameters.get("DIVIDEND");
+            double r = parameters.get("RATE");
             d_plus = 1.0/(v*Math.sqrt(tau))*Math.log(s/(k*Math.exp((d-r)*tau))) + 1.0/2.0*v*Math.sqrt(tau);
             d_minus = d_plus - v*Math.sqrt(tau);
 
@@ -177,7 +213,7 @@ public class EuropeanPut extends EuropeanOption {
         HashMap<String, Double> parameters = new HashMap<String, Double>();
 
         parameters.put("SPOT_LEVEL", this.getModel().getSpotLevel());
-        parameters.put("SPOT_LEVEL", this.getModel().getVolatility());
+        parameters.put("VOLATILITY", this.getModel().getVolatility());
         parameters.put("RATE", this.getModel().getRate());
         parameters.put("DIVIDEND", this.getModel().getDividend());
         parameters.put("STRIKE", this.getStrike());
